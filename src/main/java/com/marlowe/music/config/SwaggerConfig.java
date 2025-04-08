@@ -1,5 +1,6 @@
 package com.marlowe.music.config;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
  **/
 @Configuration
 @EnableSwagger2
+@EnableKnife4j
 public class SwaggerConfig {
     /**
      * 配置了Swagger的Docket的bean实例
@@ -41,9 +43,9 @@ public class SwaggerConfig {
     public ApiInfo apiInfo() {
 
         // 作者信息
-        Contact contact = new Contact("Marlowe", "https://xmmarlowe.github.io", "marlowe246@qq.com");
+        Contact contact = new Contact("菜的一币", "https://xmmarlowe.github.io", "2143214202@qq.com");
 
-        return new ApiInfo("SpringBoot-VUE-Music API Documentation",
+        return new ApiInfo("Music API Documentation",
                 "Api Documentation",
                 "v1.0", "urn:tos",
                 contact, "Apache 2.0",

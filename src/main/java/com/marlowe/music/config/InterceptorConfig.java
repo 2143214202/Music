@@ -1,6 +1,6 @@
 package com.marlowe.music.config;
 
-import com.marlowe.music.interceptors.JWTInterceptor;
+import com.marlowe.music.service.interceptors.JWTInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 

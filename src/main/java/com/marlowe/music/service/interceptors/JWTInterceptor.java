@@ -1,4 +1,4 @@
-package com.marlowe.music.interceptors;
+package com.marlowe.music.service.interceptors;
 
 import com.auth0.jwt.exceptions.AlgorithmMismatchException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
