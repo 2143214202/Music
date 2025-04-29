@@ -1,15 +1,11 @@
 package com.marlowe.music.controller;
 
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
-import com.google.gson.JsonObject;
 import com.marlowe.music.commons.result.Result;
 import com.marlowe.music.entity.Singer;
-import com.marlowe.music.entity.Song;
 import com.marlowe.music.service.ISingerService;
-import com.marlowe.music.service.impl.SingerServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -18,8 +14,6 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -48,7 +42,8 @@ public class SingerController {
     public class MyPicConfig implements WebMvcConfigurer {
         @Override
         public void addResourceHandlers(ResourceHandlerRegistry registry) {
-            registry.addResourceHandler("/img/singerPic/**").addResourceLocations("file:D:\\IDE_Project\\JavaLearning\\music-website\\music-server\\img\\singerPic");
+            registry.addResourceHandler("/img/singerPic/**")
+                    .addResourceLocations("file:D:\\IDE_Project\\JavaLearning\\music-website\\music-server\\img\\singerPic");
         }
     }
 
@@ -144,7 +139,8 @@ public class SingerController {
      */
     @ApiOperation(value = "根据姓名查找歌手")
     @GetMapping("detail-name/{name}/{pageNo}/{pageSize}")
-    public Result<List<Singer>> findSingerByName(@PathVariable("name") String name, @PathVariable int pageNo, @PathVariable int pageSize) {
+    public Result<List<Singer>> findSingerByName(@PathVariable("name") String name,
+                                                 @PathVariable int pageNo, @PathVariable int pageSize) {
         PageInfo<Singer> pageInfo = singerService.findSingerByName(name, pageNo, pageSize);
         List<Singer> singers = pageInfo.getList();
         return Result.ok(singers);
